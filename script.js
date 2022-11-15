@@ -1,19 +1,21 @@
 const API_KEY = 'BSf710HTai7To4NGjwDIX5roTAOSvLNG';
 
 async function fetchGifUrl(searchWord){
-  const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=${search}`, {mode: 'cors'});
-  const json = await response.json();
-  const url = json.data.images.original.url;
-  return url;
+  try {
+    const response = await fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=${searchWord}`, {mode: 'cors'});
+    const json = await response.json();
+    const url = json.data.images.original.url;
+    return url;
+  } catch(error) {
+    console.log(error);
+  }
 }
 
-function searchGif(){
+async function searchGif(){
   const input = document.querySelector('input');
   if (input.value !== '') {
-    const url = fetchGifUrl(input.value).catch(err => alert(err));
-    const newGif = new Image();
-    newGif.src = url;
-    document.querySelector('img').replaceWith(newGif);
+    const url = await fetchGifUrl(input.value);
+    document.querySelector('img').src = url;
   }
 }
 
