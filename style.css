@@ -1,0 +1,29 @@
+body{
+  width: 100vw;
+  height: 100vh;
+
+  background-image: radial-gradient(circle at 50%,#ffe401 20%, #33d13f 40%, #93e85e 60%, #fcb653 80%, #ff5254 100%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;gap: 1rem;
+}
+
+img{
+  border: 10px solid #ff525460;
+  box-shadow: 0px 0px 0px 2px #93e85e50;
+}
+
+#searchbox{
+  background-color: #ff525460;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+input, button{
+  padding: 4px;
+  border: none;
+  border-radius: 2px;
+}
+

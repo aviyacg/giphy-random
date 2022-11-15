@@ -2,34 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Giphy Random</title>
 </head>
 <body>
   <img src="#">
-  <input type="text">
-  <button id="search">Search</button>
-  <script>
-    function searchGif(search){ 
-      const API_KEY = 'BSf710HTai7To4NGjwDIX5roTAOSvLNG';
-      const img = document.querySelector('img');
-      fetch(`https://api.giphy.com/v1/gifs/translate?api_key=${API_KEY}&s=${search}`, {mode: 'cors'})
-        .then(function(response){
-          return response.json();
-        })
-        .then(function(response) {
-          img.src = response.data.images.original.url;
-        });
-    }
-    const searchButton = document.querySelector('#search');
-    searchButton.addEventListener('click', () => {
-      const input = document.querySelector('input');
-      const searchKeyword = input.value;
-      if (searchKeyword !== ''){
-        searchGif(searchKeyword);
-      }
-    });
-
-    searchGif('ass');
-  </script>
+  <div id="searchbox" alt="search for a gif">
+    <input type="text" placeholder="search a gif">
+    <button id="search">Search</button>
+  </div>
 </body>
 </html>
